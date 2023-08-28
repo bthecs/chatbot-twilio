@@ -55,6 +55,7 @@ from treelib import Tree, Node
 import streamlit as st
 from PIL import Image
 from informe.constantes import Constants
+import matplotlib.pyplot as plt
 
 def arbol():
     st.image("informe/imagenes/price.png", caption='Precio de 1000 aperturas y 1000 mensajes', use_column_width=True)
@@ -75,12 +76,15 @@ def arbol():
     no_en_otro_momento_node = tree.create_node(f"No en otro momento {tupla[5]}", f"No en otro momento {tupla[5]}", parent=f"Responde {tupla[1]}")
     no_responde_node = tree.create_node(f"No responde {tupla[6]}", f"No responde {tupla[6]}", parent=f"Mensajes {tupla[0]}")
 
-    # Visualizar el árbol
-    st.title("Arbol de Mensajes")
+    # Visualizar el árbol usando Matplotlib
+    plt.figure(figsize=(10, 6))
     tree.show()
 
-    # Opcionalmente, exportar el árbol a formato PNG
+    # Guardar el árbol como imagen
     image_path = "informe/imagenes/arbol.png"
-    tree.to_picture(image_path)
+    plt.savefig(image_path)
+    plt.close()
+
+    # Mostrar la imagen en Streamlit
     tree_image = Image.open(image_path)
     st.image(tree_image, caption="Árbol de Mensajes", use_column_width=True, output_format="PNG")
