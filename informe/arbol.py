@@ -3,6 +3,10 @@ from anytree import Node
 import streamlit as st
 from PIL import Image
 from informe.constantes import Constants
+import os
+
+
+graphviz_executable = os.path.abspath("Graphviz/bin/dot")
 
 
 def arbol():
@@ -24,7 +28,7 @@ def arbol():
 
 
     # Crear un objeto Digraph
-    dot = Digraph(format='png', graph_attr={'rankdir': 'TB', 'bgcolor': 'black'})
+    dot = Digraph(format='png', graph_attr={'rankdir': 'TB', 'bgcolor': 'black'}, engine=graphviz_executable)
     dot.attr('node', style='filled', shape='box', color='#D9E6F5', fontname='Courier', fontsize='10')
     dot.attr('edge', color='#808080')
 
