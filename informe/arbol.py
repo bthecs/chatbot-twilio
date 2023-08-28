@@ -43,8 +43,8 @@ def arbol():
 
     # Guarda en un archivo temporal
     graph_filename = "temp_graph"
-    dot.render("informe/imagenes/" + graph_filename, cleanup=True)
-
+    image_path = os.path.abspath(os.path.join(script_dir, "..", "informe", "imagenes", graph_filename))
+    dot.render(image_path, cleanup=True)
     # Crear la interfaz de streamlit
     st.title("Arbol de Mensajes")
 
