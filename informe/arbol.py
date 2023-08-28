@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 from informe.constantes import Constants
 import os
 
-os.environ["PATH"] += os.pathsep + '../Graphviz/bin'
+graphviz_path = 'Graphviz/bin'
+graphviz_executable = os.path.join(graphviz_path, "dot")
 
 def arbol():
     st.image("informe/imagenes/price.png", caption='Precio de 1000 aperturas y 1000 mensajes', use_column_width=True)
