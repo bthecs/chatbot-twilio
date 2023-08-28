@@ -6,7 +6,10 @@ from informe.constantes import Constants
 import os
 
 
-graphviz_executable = os.path.abspath("Graphviz/bin/dot")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Ruta completa al ejecutable dot
+graphviz_executable = os.path.abspath(os.path.join(script_dir, "..", "Graphviz", "bin", "dot"))
 
 
 def arbol():
