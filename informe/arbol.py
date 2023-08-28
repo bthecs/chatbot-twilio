@@ -76,9 +76,9 @@ def arbol():
     no_en_otro_momento_node = tree.create_node(f"No en otro momento {tupla[5]}", f"No en otro momento {tupla[5]}", parent=f"Responde {tupla[1]}")
     no_responde_node = tree.create_node(f"No responde {tupla[6]}", f"No responde {tupla[6]}", parent=f"Mensajes {tupla[0]}")
 
-    # # Visualizar el árbol usando Matplotlib
-    # plt.figure(figsize=(10, 6))
-    # tree.show()
+    # Visualizar el árbol usando Matplotlib
+    plt.figure(figsize=(10, 6))
+    tree.show()
 
     # Guardar el árbol como imagen
     image_path = "informe/imagenes/temp_graph.png"
