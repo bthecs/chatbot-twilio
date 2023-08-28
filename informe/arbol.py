@@ -11,7 +11,7 @@ from informe.constantes import Constants
 import os
 
 graphviz_path = 'Graphviz/bin'
-graphviz_executable = os.path.join(graphviz_path, "dot")
+graphviz_executable = os.path.join(graphviz_path)
 
 def arbol():
     st.image("informe/imagenes/price.png", caption='Precio de 1000 aperturas y 1000 mensajes', use_column_width=True)
@@ -32,7 +32,7 @@ def arbol():
 
 
     # Crear un objeto Digraph
-    dot = Digraph(format='png', graph_attr={'rankdir': 'TB', 'bgcolor': 'black'}, engine="dot")
+    dot = Digraph(format='png', graph_attr={'rankdir': 'TB', 'bgcolor': 'black'}, engine=graphviz_executable)
     dot.attr('node', style='filled', shape='box', color='#D9E6F5', fontname='Courier', fontsize='10')
     dot.attr('edge', color='#808080')
 
