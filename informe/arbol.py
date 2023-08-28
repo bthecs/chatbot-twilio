@@ -32,7 +32,7 @@ def arbol():
 
 
     # Crear un objeto Digraph
-    dot = Digraph(format='png', graph_attr={'rankdir': 'TB', 'bgcolor': 'black'}, engine=graphviz_executable)
+    dot = Digraph(format='png', graph_attr={'rankdir': 'TB', 'bgcolor': 'black'}, engine='dot')
     dot.attr('node', style='filled', shape='box', color='#D9E6F5', fontname='Courier', fontsize='10')
     dot.attr('edge', color='#808080')
 
