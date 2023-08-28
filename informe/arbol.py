@@ -81,7 +81,7 @@ def arbol():
     tree.show()
 
     # Guardar el árbol como imagen
-    image_path = "informe/imagenes/arbol.png"
+    image_path = "informe/imagenes/temp_graph.png"
     plt.savefig(image_path)
     plt.close()
 
