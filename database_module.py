@@ -2,7 +2,7 @@ import sqlite3
 
 
 def create_db():
-    conn = sqlite3.connect('chatbot_database.db')  # Cambia el nombre del archivo según tus preferencias
+    conn = sqlite3.connect('informe/chatbot_database.db')  # Cambia el nombre del archivo según tus preferencias
 
     # Crear la tabla si no existe
     conn.execute('''
@@ -27,7 +27,7 @@ def create_records_from_file(file_path):
 
 def create_record(phone_number):
     try:
-        conn = sqlite3.connect('chatbot_database.db')
+        conn = sqlite3.connect('informe/chatbot_database.db')
         query = '''
             INSERT INTO interactions (phone_number, initial_message, location_selection, usage_interest)
             VALUES (?, ?, ?, ?)
@@ -41,7 +41,7 @@ def create_record(phone_number):
 # Función para actualizar el campo 'initial_message'
 def update_initial_message_received(phone_number, initial_message):
     try:
-        conn = sqlite3.connect('chatbot_database.db')
+        conn = sqlite3.connect('informe/chatbot_database.db')
         query = '''
             UPDATE interactions
             SET initial_message = ?
@@ -56,7 +56,7 @@ def update_initial_message_received(phone_number, initial_message):
 # Función para actualizar el campo 'location_selection'
 def update_location_selection(phone_number, location):
     try:
-        conn = sqlite3.connect('chatbot_database.db')
+        conn = sqlite3.connect('informe/chatbot_database.db')
         query = '''
             UPDATE interactions
             SET location_selection = ?
@@ -71,7 +71,7 @@ def update_location_selection(phone_number, location):
 # Función para actualizar el campo 'usage_interest'
 def update_usage_interest(phone_number, usage):
     try:
-        conn = sqlite3.connect('chatbot_database.db')
+        conn = sqlite3.connect('informe/chatbot_database.db')
         query = '''
             UPDATE interactions
             SET usage_interest = ?
@@ -85,7 +85,7 @@ def update_usage_interest(phone_number, usage):
 
 def get_all_records():
     try:
-        conn = sqlite3.connect('chatbot_database.db')
+        conn = sqlite3.connect('informe/chatbot_database.db')
         query = 'SELECT * FROM interactions'
         result = conn.execute(query).fetchall()
         conn.close()
@@ -95,7 +95,7 @@ def get_all_records():
 
 def filter_by_value_and_column(value, column):
     try:
-        conn = sqlite3.connect('chatbot_database.db')
+        conn = sqlite3.connect('informe/chatbot_database.db')
         query = f'SELECT * FROM interactions WHERE {column} = ?'
         result = conn.execute(query, (value,)).fetchall()
         conn.close()
@@ -104,7 +104,7 @@ def filter_by_value_and_column(value, column):
         print(f'Error en filter_by_value_and_column - Detalles: {e}')
 
 def get_number_of_records():
-    conn = sqlite3.connect('chatbot_database.db')
+    conn = sqlite3.connect('informe/chatbot_database.db')
     query = 'SELECT COUNT(*) FROM interactions'
     result = conn.execute(query).fetchone()[0]
     conn.close()
