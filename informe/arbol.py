@@ -60,8 +60,8 @@ from PIL import Image
 def arbol():
     # Crear un grafo dirigido para representar el árbol genealógico
     G = nx.DiGraph()
-    tupla = Constants().main()
-
+    # tupla = Constants().main()
+    tupla = [1, 2, 3, 4, 5, 6, 7, 8]
     # Agregar nodos con etiquetas personalizadas
     G.add_node("Arbol")
     G.add_node(f"Mensajes {tupla[0]}")
