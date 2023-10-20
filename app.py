@@ -34,7 +34,7 @@ def actualizar_informe():
     print(f'Informe Actualizado a las {hora.hour}:{hora.minute}')
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(actualizar_informe, 'cron', hour=15, minute=5, second=00)  # Cambia la hora a la que deseas que se ejecute
+scheduler.add_job(actualizar_informe, 'cron', hour=15, minute=31, second=50)  # Cambia la hora a la que deseas que se ejecute
 scheduler.start()
 
 @app.route('/bot', methods=['POST'])

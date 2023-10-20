@@ -33,6 +33,7 @@ def main(total_mensajes, si_resp, no_resp):
     no = cantidad_mensajes-responde
     porcentaje_si = "{:.2f}".format(por_si)
     porcentaje_no = "{:.2f}".format(por_no)
+    print("Refrescando la pagina papa")
     mapa(list_number)
     arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcentaje_si, porcentaje_no, no)
     grafico(total, responde, responde_si)

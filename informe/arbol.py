@@ -95,7 +95,7 @@ def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcenta
 
     # Dibujar el árbol
     plt.figure(figsize=(8, 6))
-    nx.draw(G, pos, with_labels=True, node_size=3000, node_color="lightblue", arrows=True, font_size=8, font_family="Courier")
+    nx.draw(G, pos, with_labels=True, node_size=3000, node_color="lightblue", arrows=True, font_size=8, font_family="Times New Roman")
     plt.title("Árbol de Mensajes")
 
     # Mostrar el árbol en Streamlit
