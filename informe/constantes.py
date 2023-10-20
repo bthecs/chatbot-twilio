@@ -14,11 +14,11 @@ class Constants:
         self.porcentaje_no = None
 
 
-    def main(self, records, no_res, si_res):
-        total = records
+    def main(self):
+        total = 1
         self.cantidad_mensajes = total
-        responde_no = no_res # no responde
-        responde_si = si_res # si responde
+        responde_no = 1 # no responde
+        responde_si = 1 # si responde
         responde = responde_si + responde_no
         self.responde = responde
         self.si = responde_si
