@@ -51,40 +51,59 @@
 #     tree_image = Image.open("informe/imagenes/temp_graph.png")
 #     st.image(tree_image, caption="Árbol de Mensajes", use_column_width=True, output_format="PNG")
 
-from treelib import Tree, Node
+from matplotlib import pyplot as plt
+import networkx as nx
+from informe.constantes import Constants
 import streamlit as st
 from PIL import Image
-from informe.constantes import Constants
-import matplotlib.pyplot as plt
 
 def arbol():
-    st.image("informe/imagenes/price.png", caption='Precio de 1000 aperturas y 1000 mensajes', use_column_width=True)
-    st.image("informe/imagenes/mensaje.png", caption='Mensaje utilizado para campaña', use_column_width=True)
-
+    # Crear un grafo dirigido para representar el árbol genealógico
+    G = nx.DiGraph()
     tupla = Constants().main()
 
-    # Crear un objeto Tree
-    tree = Tree()
+    # Agregar nodos con etiquetas personalizadas
+    G.add_node("Arbol")
+    G.add_node(f"Mensajes {tupla[0]}")
+    G.add_node(f"Responde {tupla[1]}")
+    G.add_node(f"Si, me encantaría {tupla[2]}")
+    G.add_node(f"Porcentaje de derivación {tupla[7]}")
+    G.add_node(f"Porcentaje de no derivación {tupla[8]}")
+    G.add_node(f"No en otro momento {tupla[5]}")
+    G.add_node(f"No responde {tupla[6]}")
 
-    # Agregar nodos al árbol
-    root_node = tree.create_node("Arbol", "Arbol")
-    mensajes_node = tree.create_node(f"Mensajes {tupla[0]}", f"Mensajes {tupla[0]}", parent="Arbol")
-    responde_node = tree.create_node(f"Responde {tupla[1]}", f"Responde {tupla[1]}", parent=f"Mensajes {tupla[0]}")
-    si_node = tree.create_node(f"Si, me encantaría {tupla[2]}", f"Si, me encantaría {tupla[2]}", parent=f"Responde {tupla[1]}")
-    si_porcentaje_node = tree.create_node(f"Porcentaje de derivación {tupla[7]}", f"Porcentaje de derivación {tupla[7]}", parent=f"Si, me encantaría {tupla[2]}")
-    no_porcentaje_node = tree.create_node(f"Porcentaje de no derivación {tupla[8]}", f"Porcentaje de no derivación {tupla[8]}", parent=f"Si, me encantaría {tupla[2]}")
-    no_en_otro_momento_node = tree.create_node(f"No en otro momento {tupla[5]}", f"No en otro momento {tupla[5]}", parent=f"Responde {tupla[1]}")
-    no_responde_node = tree.create_node(f"No responde {tupla[6]}", f"No responde {tupla[6]}", parent=f"Mensajes {tupla[0]}")
+    # Agregar aristas que conectan los nodos
+    G.add_edge("Arbol", f"Mensajes {tupla[0]}")
+    G.add_edge(f"Mensajes {tupla[0]}", f"Responde {tupla[1]}")
+    G.add_edge(f"Responde {tupla[1]}", f"Si, me encantaría {tupla[2]}")
+    G.add_edge(f"Si, me encantaría {tupla[2]}", f"Porcentaje de derivación {tupla[7]}")
+    G.add_edge(f"Si, me encantaría {tupla[2]}", f"Porcentaje de no derivación {tupla[8]}")
+    G.add_edge(f"Responde {tupla[1]}", f"No en otro momento {tupla[5]}")
+    G.add_edge(f"Mensajes {tupla[0]}", f"No responde {tupla[6]}")
 
-    # Visualizar el árbol usando Matplotlib
-    plt.figure(figsize=(10, 6))
-    tree.show()
+    # Definir la disposición jerárquica
+    pos = {
+        "Arbol": (0, 0),
+        f"Mensajes {tupla[0]}": (0, -1),
+        f"Responde {tupla[1]}": (-1, -2),
+        f"No responde {tupla[6]}": (1, -2),
+        f"Si, me encantaría {tupla[2]}": (-1, -3),
+        f"No en otro momento {tupla[5]}": (-0, -3),
+        f"Porcentaje de derivación {tupla[7]}": (-1, -4),
+        f"Porcentaje de no derivación {tupla[8]}": (0, -4),
+    }
 
-    # Guardar el árbol como imagen
-    image_path = "informe/imagenes/temp_graph.png"
-    plt.savefig(image_path)
-    plt.close()
+    # Dibujar el árbol
+    plt.figure(figsize=(8, 6))
+    nx.draw(G, pos, with_labels=True, node_size=3000, node_color="lightblue", arrows=True, font_size=8, font_family="Courier")
+    plt.title("Árbol de Mensajes")
 
-    # Mostrar la imagen en Streamlit
-    tree_image = Image.open(image_path)
-    st.image(tree_image, caption="Árbol de Mensajes", use_column_width=True, output_format="PNG")
+    # Mostrar el árbol en Streamlit
+    st.pyplot(plt.gcf())
+    # # Definir la posición de los nodos en el gráfico
+    # pos = nx.drawing.nx_agraph.graphviz_layout(G, prog="dot")
+
+    # # Dibujar el árbol
+    # plt.figure(figsize=(8, 6))
+    # nx.draw(G, pos, with_labels=True, node_size=3000, node_color="lightblue", arrows=True, font_size=8, font_family="Courier")
+    # plt.title("Árbol de Mensajes")

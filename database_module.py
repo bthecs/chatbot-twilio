@@ -116,8 +116,8 @@ def get_number_of_records_by_filter(value, column):
 
 
 if __name__ == '__main__':
-    #create_db()
-    #create_records_from_file('clients.txt')
+    # create_db()
+    # create_records_from_file('clients_1.txt')
     # update_initial_message_received('2942402652', 'si, me encantaria')
     # update_location_selection('2942402652', 'me interesan ambos')
     # update_usage_interest('2942402652', 'residencial')
