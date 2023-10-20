@@ -23,7 +23,7 @@ def get_all_data():
     return main(total_mensajes.json(), si_resp.json(), no_resp.json())
 
 if __name__ == "__main__":
-    mapa(0)
+    mapa(['2604017664'])
     arbol(0, 0, 0, 0, 0, 0, 0, 0)
     grafico(0, 0, 0)
     scheduler = BackgroundScheduler()
