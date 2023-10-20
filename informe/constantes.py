@@ -14,8 +14,8 @@ class Constants:
         self.porcentaje_no = None
 
 
-    def main(self):
-        total = 1
+    def main(self, total_mensajes):
+        total = len(total_mensajes)
         self.cantidad_mensajes = total
         responde_no = 1 # no responde
         responde_si = 1 # si responde
