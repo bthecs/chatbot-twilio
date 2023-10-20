@@ -29,7 +29,7 @@ eleccion = None
 def actualizar_informe():
 
     subprocess.Popen(['streamlit', 'run', 'front.py'])
-  
+    
     hora = dt.datetime.now()
     print(f'Informe Actualizado a las {hora.hour}:{hora.minute}')
 
@@ -216,12 +216,7 @@ def send():
         
     return str('Done')
 
-# @app.route('/informe', methods=['POST'])
-# def informe():
-#     main()
-#     hora = dt.datetime.now()
-#     return str(f'Informe Actualizado a las {hora.hour}:{hora.minute}')
-    
+
 
 
 if __name__ == '__main__':

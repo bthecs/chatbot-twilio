@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 
 
 def mapa():
+    
     # Cargar los datos del GeoJSON
     prov_geo = "informe/Argentina.geojson"
     geoJSON_df = gpd.read_file(prov_geo)
