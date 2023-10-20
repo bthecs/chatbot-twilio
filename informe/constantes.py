@@ -13,8 +13,7 @@ porcentaje_si = None
 porcentaje_no = None
 
 
-def main( total_mensajes):
-    print(total_mensajes)
+def main(total_mensajes):
     total = len(total_mensajes)
     cantidad_mensajes = total
     responde_no = 1 # no responde
