@@ -1,7 +1,7 @@
 from database_module import get_number_of_records, get_number_of_records_by_filter
 
 
-class Constants:
+class Constants():
     def __init__(self):
         self.cantidad_mensajes = None
         self.responde = None
