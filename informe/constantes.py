@@ -1,4 +1,7 @@
 from database_module import get_number_of_records, get_number_of_records_by_filter
+from informe.arbol import arbol
+from informe.grafico import grafico
+from informe.mapa import mapa
 
 
 
@@ -13,13 +16,16 @@ porcentaje_si = None
 porcentaje_no = None
 
 
-def main(total_mensajes):
+def main(total_mensajes, si_resp, no_resp):
+    list_number = []
+    for number in total_mensajes:
+        list_number.append(number[1])
+    
     total = len(total_mensajes)
     cantidad_mensajes = total
-    responde_no = 1 # no responde
-    responde_si = 1 # si responde
+    responde_no = len(si_resp)
+    responde_si = len(no_resp)
     responde = responde_si + responde_no
-    responde = responde
     si = responde_si
     por_si = si/responde
     por_no = 1-por_si
@@ -27,7 +33,9 @@ def main(total_mensajes):
     no = cantidad_mensajes-responde
     porcentaje_si = "{:.2f}".format(por_si)
     porcentaje_no = "{:.2f}".format(por_no)
-    return cantidad_mensajes, responde, si, por_si, por_no, no_en_otro_momento, no, porcentaje_si, porcentaje_no
+    mapa(list_number)
+    arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcentaje_si, porcentaje_no, no)
+    grafico(total, responde, responde_si)
 
 
 

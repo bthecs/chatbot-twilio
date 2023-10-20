@@ -9,8 +9,9 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 
-def mapa():
-    
+
+def mapa(phone_numbers):
+
     # Cargar los datos del GeoJSON
     prov_geo = "informe/Argentina.geojson"
     geoJSON_df = gpd.read_file(prov_geo)
@@ -37,11 +38,11 @@ def mapa():
     # Aplicación Streamlit
     st.title("Tabla con valores de Argentina")
 
-    phone_numbers = []
-    # Lista de números de teléfono para verificar
-    df = pd.read_sql_query("SELECT * FROM interactions", r"sqlite:///informe/chatbot_database.db")
-    for i in range(len(df['phone_number'])):
-        phone_numbers.append(df['phone_number'][i])
+    # phone_numbers = []
+    # # Lista de números de teléfono para verificar
+    # df = pd.read_sql_query("SELECT * FROM interactions", r"sqlite:///informe/chatbot_database.db")
+    # for i in range(len(df['phone_number'])):
+    #     phone_numbers.append(df['phone_number'][i])
     
 
     # Crear un DataFrame para los números de teléfono y las provincias

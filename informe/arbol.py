@@ -53,44 +53,44 @@
 
 from matplotlib import pyplot as plt
 import networkx as nx
-from informe.constantes import Constants
 import streamlit as st
 from PIL import Image
 
-def arbol():
+
+def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcentaje_si, porcentaje_no, no):
     # Crear un grafo dirigido para representar el árbol genealógico
     G = nx.DiGraph()
-    # tupla = Constants().main()
-    tupla = [1, 2, 3, 4, 5, 6, 7, 8]
+        
+    
     # Agregar nodos con etiquetas personalizadas
     G.add_node("Arbol")
-    G.add_node(f"Mensajes {tupla[0]}")
-    G.add_node(f"Responde {tupla[1]}")
-    G.add_node(f"Si, me encantaría {tupla[2]}")
-    G.add_node(f"Porcentaje de derivación {tupla[7]}")
-    G.add_node(f"Porcentaje de no derivación {tupla[8]}")
-    G.add_node(f"No en otro momento {tupla[5]}")
-    G.add_node(f"No responde {tupla[6]}")
+    G.add_node(f"Mensajes {total}")
+    G.add_node(f"Responde {responde}")
+    G.add_node(f"Si, me encantaría {responde_si}")
+    G.add_node(f"Porcentaje de derivación {porcentaje_si}")
+    G.add_node(f"Porcentaje de no derivación {porcentaje_no}")
+    G.add_node(f"No en otro momento {responde_no}")
+    G.add_node(f"No responde {no}")
 
     # Agregar aristas que conectan los nodos
-    G.add_edge("Arbol", f"Mensajes {tupla[0]}")
-    G.add_edge(f"Mensajes {tupla[0]}", f"Responde {tupla[1]}")
-    G.add_edge(f"Responde {tupla[1]}", f"Si, me encantaría {tupla[2]}")
-    G.add_edge(f"Si, me encantaría {tupla[2]}", f"Porcentaje de derivación {tupla[7]}")
-    G.add_edge(f"Si, me encantaría {tupla[2]}", f"Porcentaje de no derivación {tupla[8]}")
-    G.add_edge(f"Responde {tupla[1]}", f"No en otro momento {tupla[5]}")
-    G.add_edge(f"Mensajes {tupla[0]}", f"No responde {tupla[6]}")
+    G.add_edge("Arbol", f"Mensajes {total}")
+    G.add_edge(f"Mensajes {total}", f"Responde {responde}")
+    G.add_edge(f"Responde {responde}", f"Si, me encantaría {responde_si}")
+    G.add_edge(f"Si, me encantaría {responde_si}", f"Porcentaje de derivación {porcentaje_si}")
+    G.add_edge(f"Si, me encantaría {responde_si}", f"Porcentaje de no derivación {porcentaje_no}")
+    G.add_edge(f"Responde {responde}", f"No en otro momento {responde_no}")
+    G.add_edge(f"Mensajes {total}", f"No responde {no}")
 
     # Definir la disposición jerárquica
     pos = {
         "Arbol": (0, 0),
-        f"Mensajes {tupla[0]}": (0, -1),
-        f"Responde {tupla[1]}": (-1, -2),
-        f"No responde {tupla[6]}": (1, -2),
-        f"Si, me encantaría {tupla[2]}": (-1, -3),
-        f"No en otro momento {tupla[5]}": (-0, -3),
-        f"Porcentaje de derivación {tupla[7]}": (-1, -4),
-        f"Porcentaje de no derivación {tupla[8]}": (0, -4),
+        f"Mensajes {total}": (0, -1),
+        f"Responde {responde}": (-1, -2),
+        f"No responde {no}": (1, -2),
+        f"Si, me encantaría {responde_si}": (-1, -3),
+        f"No en otro momento {responde_no}": (-0, -3),
+        f"Porcentaje de derivación {porcentaje_si}": (-1, -4),
+        f"Porcentaje de no derivación {porcentaje_no}": (0, -4),
     }
 
     # Dibujar el árbol

@@ -10,22 +10,21 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
-from informe.constantes import Constants
 import numpy as np
 
-def grafico():
+
+def grafico(total, responde, responde_si):
     st.markdown("Graficas de Barras y torta")
     #grafico de tortas entre cantidad_mensajes y responde
 
     x = np.array([1])
     width = 0.2
-    tupla = Constants().main()
 
     
     fig, ax = plt.subplots()
-    mensaje_bar = ax.bar(x - width, tupla[0], width, label='Total de Mensajes')
-    responde_bar = ax.bar(x, tupla[1], width, label='Responde')
-    si_bar = ax.bar(x + width, tupla[2], width, label='Sí, me encantaría')
+    mensaje_bar = ax.bar(x - width, total, width, label='Total de Mensajes')
+    responde_bar = ax.bar(x, responde, width, label='Responde')
+    si_bar = ax.bar(x + width, responde_si, width, label='Sí, me encantaría')
     
     ax.set_ylabel('Cantidad de Mensajes')
     ax.set_title('Grafica de Barras')
@@ -42,7 +41,7 @@ def grafico():
 
 
     labels = ['Responde', 'No responde']
-    values = [tupla[1], tupla[0]-tupla[1]]
+    values = [responde, total-responde]
 
 
     #hacer grafico de torta y mostrar los values, cantidades y porcentajes
