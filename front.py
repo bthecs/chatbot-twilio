@@ -21,7 +21,7 @@ if __name__ == "__main__":
     arbol(None, None, None, None, None, None, None, None)
     grafico(None, None, None)
     scheduler = BackgroundScheduler()
-    scheduler.add_job(get_all_data, 'interval', seconds=10)
+    scheduler.add_job(get_all_data, 'interval', seconds=120)
     scheduler.start()
 
     
