@@ -100,10 +100,3 @@ def arbol():
 
     # Mostrar el árbol en Streamlit
     st.pyplot(plt.gcf())
-    # # Definir la posición de los nodos en el gráfico
-    # pos = nx.drawing.nx_agraph.graphviz_layout(G, prog="dot")
-
-    # # Dibujar el árbol
-    # plt.figure(figsize=(8, 6))
-    # nx.draw(G, pos, with_labels=True, node_size=3000, node_color="lightblue", arrows=True, font_size=8, font_family="Courier")
-    # plt.title("Árbol de Mensajes")

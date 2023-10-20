@@ -15,6 +15,7 @@ class Constants:
 
 
     def main(self, total_mensajes):
+        print(total_mensajes)
         total = len(total_mensajes)
         self.cantidad_mensajes = total
         responde_no = 1 # no responde
