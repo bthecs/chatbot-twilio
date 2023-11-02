@@ -82,7 +82,7 @@ def mapa(phone_numbers):
 
     # Resaltar provincias en el mapa
     for index, row in province_counts.iterrows():
-        highlight_province(row['Province'], row['Count'])
+        highlight_province(row['Province'], row['Count'] - 413)
 
     # Mostrar el mapa en Streamlit
     st.markdown("Mapa de Provincias de Argentina:")
