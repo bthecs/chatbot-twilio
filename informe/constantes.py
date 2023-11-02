@@ -38,6 +38,25 @@ def main(total_mensajes, si_resp, no_resp):
         arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcentaje_si, porcentaje_no, no)
         grafico(total, responde, responde_si)
     except Exception as e:
-        print(e)
+        list_number = []
+        for number in total_mensajes:
+            list_number.append(number[1])
+        
+        total = len(total_mensajes)
+        cantidad_mensajes = total
+        responde_no = 0
+        responde_si = 0
+        responde = responde_si + responde_no
+        si = responde_si
+        por_si = si/responde
+        por_no = 1-por_si
+        no_en_otro_momento = responde-si
+        no = cantidad_mensajes-responde
+        porcentaje_si = "{:.2f}".format(por_si)
+        porcentaje_no = "{:.2f}".format(por_no)
+        print("Refrescando la pagina papa")
+        mapa(list_number)
+        arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcentaje_si, porcentaje_no, no)
+        grafico(total, responde, responde_si)
 
 
