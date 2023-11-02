@@ -1,4 +1,3 @@
-from database_module import get_number_of_records, get_number_of_records_by_filter
 from informe.arbol import arbol
 from informe.grafico import grafico
 from informe.mapa import mapa
