@@ -19,7 +19,7 @@ def get_all_data():
 if __name__ == "__main__":
     get_all_data()
     scheduler = BackgroundScheduler()
-    scheduler.add_job(get_all_data, 'interval', seconds=10)
+    scheduler.add_job(get_all_data, 'interval', seconds=180)
     scheduler.start()
 
     
