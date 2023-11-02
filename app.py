@@ -26,16 +26,8 @@ client = Client()
 pool_number = ['3518725311', '3518725310', '3518725309', '1178983221', '1178981923']
 eleccion = None
 
-def actualizar_informe():
 
-    subprocess.Popen(['streamlit', 'run', 'front.py'])
-    
-    hora = dt.datetime.now()
-    print(f'Informe Actualizado a las {hora.hour}:{hora.minute}')
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(actualizar_informe, 'cron', hour=15, minute=31, second=50)  # Cambia la hora a la que deseas que se ejecute
-scheduler.start()
 
 @app.route('/bot', methods=['POST'])
 def bot():
