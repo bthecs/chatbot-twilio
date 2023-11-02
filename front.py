@@ -2,7 +2,7 @@ from informe.arbol import arbol
 from informe.grafico import grafico
 from informe.mapa import mapa
 from informe.constantes import main
-from apscheduler.schedulers.background import BackgroundScheduler
+# from apscheduler.schedulers.background import BackgroundScheduler
 import requests
 
 def get_all_data():
@@ -18,8 +18,8 @@ def get_all_data():
 
 if __name__ == "__main__":
     get_all_data()
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(get_all_data, 'interval', seconds=180)
-    scheduler.start()
+    # scheduler = BackgroundScheduler()
+    # scheduler.add_job(get_all_data, 'interval', seconds=180)
+    # scheduler.start()
 
     
