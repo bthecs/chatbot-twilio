@@ -48,10 +48,10 @@ def main(total_mensajes, si_resp, no_resp):
         responde_si = 0
         responde = responde_si + responde_no
         si = responde_si
-        por_si = si/responde
-        por_no = 1-por_si
-        no_en_otro_momento = responde-si
-        no = cantidad_mensajes-responde
+        por_si = 0
+        por_no = 0
+        no_en_otro_momento = 0
+        no = cantidad_mensajes-0
         porcentaje_si = "{:.2f}".format(por_si)
         porcentaje_no = "{:.2f}".format(por_no)
         print("Refrescando la pagina papa")
