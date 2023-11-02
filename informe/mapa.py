@@ -58,7 +58,7 @@ def mapa(phone_numbers):
     # Definir una función para aplicar a cada número de teléfono en el DataFrame
     def get_province_and_city(phone_number):
         if phone_number[:2] in code_area:
-            return code_area[phone_number[:2]][1]
+            return code_area[phone_number[:2] - 416][1]
         elif phone_number[:3] in code_area:
             if phone_number[:4] in code_area:
                 return code_area[phone_number[:4]][1]
@@ -82,7 +82,7 @@ def mapa(phone_numbers):
 
     # Resaltar provincias en el mapa
     for index, row in province_counts.iterrows():
-        highlight_province(row['Province'], row['Count'] - 413)
+        highlight_province(row['Province'], row['Count'])
 
     # Mostrar el mapa en Streamlit
     st.markdown("Mapa de Provincias de Argentina:")
