@@ -24,7 +24,7 @@ def grafico(total, responde, responde_si):
     fig, ax = plt.subplots()
     mensaje_bar = ax.bar(x - width, total, width, label='Total de Mensajes')
     responde_bar = ax.bar(x, responde, width, label='Responde')
-    si_bar = ax.bar(x + width, responde_si, width, label='Sí, me encantaría')
+    si_bar = ax.bar(x + width, responde_si, width, label='Contactar con asesor')
     
     ax.set_ylabel('Cantidad de Mensajes')
     ax.set_title('Grafica de Barras')
