@@ -14,7 +14,7 @@ def get_all_data():
     json_data_2 = {"value": "no, gracias","column": "initial_message"}
     no_resp = requests.get(url_2, json=json_data_2)
     
-    return main(total_mensajes.json(), si_resp.json(), no_resp.json())
+    return main(total_mensajes.json(), no_resp.json(), si_resp.json())
 
 if __name__ == "__main__":
     get_all_data()
