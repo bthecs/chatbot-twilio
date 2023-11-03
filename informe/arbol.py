@@ -77,7 +77,7 @@ def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcenta
     G.add_edge(f"Mensajes {total}", f"Responde {responde}")
     G.add_edge(f"Responde {responde}", f"Contactar con asesor {responde_si}")
     G.add_edge(f"Contactar con asesor {responde_si}", f"Porcentaje de derivación {porcentaje_si}")
-    G.add_edge(f"Contactar con asesor {responde_si}", f"Porcentaje de no derivación {porcentaje_no}")
+    G.add_edge(f"Contactar con asesor {responde_no}", f"Porcentaje de no derivación {porcentaje_no}")
     G.add_edge(f"Responde {responde}", f"No en otro momento {responde_no}")
     G.add_edge(f"Mensajes {total}", f"No responde {no}")
 
