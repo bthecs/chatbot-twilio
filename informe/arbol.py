@@ -26,7 +26,7 @@
 #     si_node = Node(f"Contactar con asesor {tupla[2]}", parent=responde_node)
 #     si_porcentaje_node = Node(f"Porcentaje de derivación {tupla[7]}", parent=si_node)
 #     no_porcentaje_node = Node(f"Porcentaje de no derivación {tupla[8]}", parent=si_node)
-#     no_en_otro_momento_node = Node(f"No en otro momento {tupla[5]}", parent=responde_node)
+#     no_en_otro_momento_node = Node(f"No, gracias {tupla[5]}", parent=responde_node)
 #     no_responde_node = Node(f"No responde {tupla[6]}", parent=mensajes_node)
 
 
@@ -69,7 +69,7 @@ def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcenta
     G.add_node(f"Contactar con asesor {responde_si}")
     G.add_node(f"Porcentaje de derivación {porcentaje_si}")
     G.add_node(f"Porcentaje de no derivación {porcentaje_no}")
-    G.add_node(f"No en otro momento {responde_no}")
+    G.add_node(f"No, gracias {responde_no}")
     G.add_node(f"No responde {no}")
 
     # Agregar aristas que conectan los nodos
@@ -77,8 +77,8 @@ def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcenta
     G.add_edge(f"Mensajes {total}", f"Responde {responde}")
     G.add_edge(f"Responde {responde}", f"Contactar con asesor {responde_si}")
     G.add_edge(f"Contactar con asesor {responde_si}", f"Porcentaje de derivación {porcentaje_si}")
-    G.add_edge(f"No en otro momento {responde_no}", f"Porcentaje de no derivación {porcentaje_no}")
-    G.add_edge(f"Responde {responde}", f"No en otro momento {responde_no}")
+    G.add_edge(f"No, gracias {responde_no}", f"Porcentaje de no derivación {porcentaje_no}")
+    G.add_edge(f"Responde {responde}", f"No, gracias {responde_no}")
     G.add_edge(f"Mensajes {total}", f"No responde {no}")
 
     # Definir la disposición jerárquica
@@ -88,7 +88,7 @@ def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcenta
         f"Responde {responde}": (-1, -2),
         f"No responde {no}": (1, -2),
         f"Contactar con asesor {responde_si}": (-1, -3),
-        f"No en otro momento {responde_no}": (-0, -3),
+        f"No, gracias {responde_no}": (-0, -3),
         f"Porcentaje de derivación {porcentaje_si}": (-1, -4),
         f"Porcentaje de no derivación {porcentaje_no}": (0, -4),
     }
