@@ -15,7 +15,7 @@ porcentaje_si = None
 porcentaje_no = None
 
 
-def main(total_mensajes, si_resp, no_resp):
+def main(total_mensajes, si_resp, no_resp, message_column):
     try:
         list_number = []
         for number in total_mensajes:
@@ -25,7 +25,7 @@ def main(total_mensajes, si_resp, no_resp):
         cantidad_mensajes = total
         responde_no = len(si_resp)
         responde_si = len(no_resp)
-        responde = responde_si + responde_no
+        responde = message_column
         si = responde_si
         por_si = si/responde
         por_no = 1-por_si
