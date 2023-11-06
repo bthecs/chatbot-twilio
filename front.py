@@ -16,6 +16,7 @@ def get_all_data():
     url_3 = "https://ccdd-207-248-125-79.ngrok-free.app/get-column-data"
     json_column = {"column": "initial_message"}
     message_column = requests.get(url_3, json=json_column)
+    print(message_column.json())
     
     return main(total_mensajes.json(), no_resp.json(), si_resp.json(), message_column.json())
 
