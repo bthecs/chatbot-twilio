@@ -54,7 +54,6 @@
 from matplotlib import pyplot as plt
 import networkx as nx
 import streamlit as st
-from PIL import Image
 
 
 def arbol(total, cantidad_mensajes, responde, responde_no, responde_si, porcentaje_si, porcentaje_no, no):

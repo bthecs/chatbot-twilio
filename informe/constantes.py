@@ -25,7 +25,7 @@ def main(total_mensajes, si_resp, no_resp, message_column):
         cantidad_mensajes = total
         responde_no = len(si_resp)
         responde_si = len(no_resp)
-        responde = message_column
+        responde = message_column[0][0]
         si = responde_si
         por_si = si/responde
         por_no = 1-por_si
