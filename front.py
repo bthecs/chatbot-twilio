@@ -8,7 +8,7 @@ def get_all_data():
     url_2 = "https://ea1b-207-248-125-79.ngrok-free.app/get-filter-data"
     json_data = {"value": "contactar con asesor","column": "initial_message"}
     si_resp = requests.get(url_2, json=json_data)
-    json_data_2 = {"value": "no, gracias","column": "initial_message"}
+    json_data_2 = {"value": "no, gracias","column": "usage_interest"}
     no_resp = requests.get(url_2, json=json_data_2)
     url_3 = "https://ea1b-207-248-125-79.ngrok-free.app/get-column-data"
     json_column = {"column": "initial_message"}
